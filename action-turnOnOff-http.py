@@ -16,16 +16,16 @@ def device_number(current_slot):
 
 
 def intent_received(hermes, intent_message):
-    sentence = 'You asked me '
+    sentence = 'Me has pedido '
     device_name_slot = intent_message.slots.device_name.first()
     devnum = device_number(device_name_slot.value)
 
-    if intent_message.intent.intent_name == 'jaimevegas:turnOn':
-        sentence += 'to turn on ' + device_name_slot.value
+    if intent_message.intent.intent_name == 'jaimevegas:Encender':
+        sentence += 'que encienda ' + device_name_slot.value
         r = requests.get(deviceOn[devnum])
         
-    elif intent_message.intent.intent_name == 'jaimevegas:turnOff':
-        sentence += 'to turn off ' + device_name_slot.value
+    elif intent_message.intent.intent_name == 'jaimevegas:Apagar':
+        sentence += 'que apague ' + device_name_slot.value
         r = requests.get(deviceOff[devnum])
         
     else:
