@@ -4,11 +4,11 @@ device = list()
 deviceOn = list()
 deviceOff = list()
 
-device.append("kitchen lights")
+device.append("luz de la cocina")
 deviceOn.append("http://192.168.1.220:8080/json.htm?type=command&param=switchlight&idx=23&switchcmd=On")
 deviceOff.append("http://192.168.1.220:8080/json.htm?type=command&param=switchlight&idx=23&switchcmd=Off")
 
-device.append("bedroom lights")
+device.append("luz del dormitorio")
 deviceOn.append("http://192.168.1.220:8080/json.htm?type=command&param=switchlight&idx=19&switchcmd=On")
 deviceOff.append("http://192.168.1.220:8080/json.htm?type=command&param=switchlight&idx=19&switchcmd=Off")
 
