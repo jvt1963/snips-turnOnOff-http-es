@@ -17,15 +17,15 @@ def dispositivo_number(current_slot):
 
 def intent_received(hermes, intent_message):
     sentence = 'Me has pedido '
-    dispositivo_name_slot = intent_message.slots.dispositivo_name.first()
-    devnum = dispositivo_number(dispositivo_name_slot.value)
+    dispositivo_slot = intent_message.slots.dispositivo.first()
+    devnum = dispositivo_number(dispositivo_slot.value)
 
     if intent_message.intent.intent_name == 'jaimevegas:Encender':
-        sentence += 'que encienda ' + dispositivo_name_slot.value
+        sentence += 'que encienda ' + dispositivo_slot.value
         r = requests.get(dispositivoOn[devnum])
         
     elif intent_message.intent.intent_name == 'jaimevegas:Apagar':
-        sentence += 'que apague ' + dispositivo_name_slot.value
+        sentence += 'que apague ' + dispositivo_slot.value
         r = requests.get(dispositivoOff[devnum])
         
     else:
