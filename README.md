@@ -8,7 +8,7 @@ Acción programada en Python compatible con `snips-skill-server`.
 
 Es necesario agregar la aplicación On-Off-http-es al asistente. La aplicación está disponible para los asistentes en español en la [consola de Snips](https://console.snips.ai)
 
-### SAM (recomendado)
+### Instalación con SAM (recomendado)
 Para instalar la acción en el dispositivo, se puede utilizar [Sam](https://snips.gitbook.io/getting-started/installation)
 
 `sam install action -g https://github.com/jvt1963/snips-turnOnOff-http-es.git`
