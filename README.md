@@ -61,7 +61,9 @@ Al ejecutar una orden, Snips seleccionará aleatoriamente uno de los textos de l
 En el archivo dispositivos.py hay que indicar también las peticiones http que debe ejecutar Snips cuando se le ordena encender o apagar un dispositivo. Para ello hay que añadir tres líneas de código, siguiendo el modelo siguiente (con los datos del ejemplo):
 
   dispositivo.append("Lampara")
+  
   dispositivoOn.append("http://192.168.1.125/lamparaOn.htm")
+  
   dispositivoOff.append("http://192.168.1.125/lamparaOn.htm")
 
 Una vez salvados los cambios en el archivo dispositivos.py, hay que reiniciar el 'snips-skill-server'
