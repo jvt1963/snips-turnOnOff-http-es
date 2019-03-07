@@ -1,4 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
+
+respuesta = ['vale','de acuerdo','como desees','tú mandas','ahora mismo']
 
 dispositivo = list()
 dispositivoOn = list()
