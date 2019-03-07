@@ -11,24 +11,37 @@ Es necesario agregar la aplicación On-Off-http-es al asistente. La aplicación 
 ### SAM (recomendado)
 Para instalar la acción en el dispositivo, se puede utilizar [Sam](https://snips.gitbook.io/getting-started/installation)
 
-`sam install action -g https://github.com/jvt1963/snips-turnOnOff-http.git`
+`sam install action -g https://github.com/jvt1963/snips-turnOnOff-http-es.git`
 
-### Manually
+### Instalación manual
 
-Copy it manually to the device to the folder `/var/lib/snips/skills/`
-You'll need `snips-skill-server` installed on the pi
+Copiar los archivos de la acción en una carpeta dentro de la ruta `/var/lib/snips/skills/`
+Es necesario que esté instalado en la RPi `snips-skill-server`
 
 `sudo apt-get install snips-skill-server`
 
-Stop snips-skill-server & generate the virtual environment
+Parar el 'snips-skill-server' y generar el entorno virtual
 ```
 sudo systemctl stop snips-skill-server
-cd /var/lib/snips/skills/snips-skill-weather-tts/
+cd /var/lib/snips/skills/snips-turnOnOff-http-es/
 sh setup.sh
 sudo systemctl start snips-skill-server
 ```
 
-## How to trigger
+## Configurar los comandos
+
+Supongamos, por ejemplo, que tenemos una lámpara que se enciende y se apaga con las siguientes peticiones http:
+Encendido: http://192.168.1.125/lamparaOn.htm
+Apagado: http://192.168.1.125/lamparaOff.htm
+
+Para que Snips encienda y apague la lámpara hay que seguir los siguientes pasos:
+
+1) Editar la aplicación en la consola de Snips para añadir al Slot "dispositivo" de los "intents" "Encender" y "Apagar" un nuevo valor con el nombre que queramos dar al dispositivo (en este caso añadiríamos el valor "Lámpara", por ejemplo).
+
+2) Editar el archivo dispositivos.py
+Puede hacerse con nano:
+  # sudo nano /var/lib/snips/skills/snips-turnOnOff-http-es/dispositivos.py
+
 
 `Hey Snips`
 
