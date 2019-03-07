@@ -1,15 +1,15 @@
-# Snips turn-on turn-off by http requests
+# Snips - Acción para encender/apagar dispositivos mediante peticiones http get
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jvt1963/snips-turnOnOff-http/master/LICENSE)
 
-This is a Snips action written in Python and is compatible with `snips-skill-server`.
+Acción programada en Python compatible con `snips-skill-server`.
 
-## Setup
-### Prerequisites
+## Instalación
+### Prerrequisitos
 
-You'll need to add the TurnOn-TurnOff-http english skill in your assistant. It's available on [Snips' console](https://console.snips.ai)
+Es necesario agregar la aplicación On-Off-http-es al asistente. La aplicación está disponible para los asistentes en español en la [consola de Snips](https://console.snips.ai)
 
-### SAM (preferred)
-To install the action on your device, you can use [Sam](https://snips.gitbook.io/getting-started/installation)
+### SAM (recomendado)
+Para instalar la acción en el dispositivo, se puede utilizar [Sam](https://snips.gitbook.io/getting-started/installation)
 
 `sam install action -g https://github.com/jvt1963/snips-turnOnOff-http.git`
 
