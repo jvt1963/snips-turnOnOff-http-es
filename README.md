@@ -36,7 +36,9 @@ Apagado: http://192.168.1.125/lamparaOff.htm
 
 Para que Snips encienda y apague la lámpara hay que seguir los siguientes pasos:
 
-1) Editar la aplicación en la consola de Snips para añadir al Slot "dispositivo" de los "intents" "Encender" y "Apagar" un nuevo valor con el nombre que queramos dar al dispositivo (en este caso añadiríamos el valor "Lámpara", por ejemplo).
+### 1) Editar la aplicación en la consola de Snips
+
+Hay que añadir un nuevo valor con el nombre que queramos dar al dispositivo al Slot "dispositivo" de los "intents" "Encender" y "Apagar" (en este caso añadiríamos el valor "Lámpara", por ejemplo).
 
 Tras realizar esta operación, hay que actualizar el asistente. 
 
@@ -44,9 +46,11 @@ Con SAM, se actualizaría con el siguiente comando:
 
   $ sam update-assistant
 
-2) Editar el archivo dispositivos.py
+### 2) Editar el archivo dispositivos.py
+
 Puede hacerse con nano:
-  $ sudo nano /var/lib/snips/skills/snips-turnOnOff-http-es/dispositivos.py
+
+$ sudo nano /var/lib/snips/skills/snips-turnOnOff-http-es/dispositivos.py
 
 En este archivo se puede configurar el mensaje de respuesta que dirá Snips al ejecutar la orden. Este mensaje se configura editando la siguiente línea:
 
