@@ -38,28 +38,48 @@ Para que Snips encienda y apague la lámpara hay que seguir los siguientes pasos
 
 1) Editar la aplicación en la consola de Snips para añadir al Slot "dispositivo" de los "intents" "Encender" y "Apagar" un nuevo valor con el nombre que queramos dar al dispositivo (en este caso añadiríamos el valor "Lámpara", por ejemplo).
 
+Tras realizar esta operación, hay que actualizar el asistente. 
+
+Con SAM, se actualizaría con el siguiente comando:
+
+  $ sam update-assistant
+
 2) Editar el archivo dispositivos.py
 Puede hacerse con nano:
-  # sudo nano /var/lib/snips/skills/snips-turnOnOff-http-es/dispositivos.py
+  $ sudo nano /var/lib/snips/skills/snips-turnOnOff-http-es/dispositivos.py
 
+En este archivo se puede configurar el mensaje de respuesta que dirá Snips al ejecutar la orden. Este mensaje se configura editando la siguiente línea:
 
-`Hey Snips`
+  respuesta = ['vale','de acuerdo','como desees','tú mandas','ahora mismo']
 
-`Turn on kitchen lights`
+Al ejecutar una orden, Snips seleccionará aleatoriamente uno de los textos de la lista anterior. Para personalizar los mensajes basta con sustituir los que vienen por defecto, o añadir cualquier otro mensaje a la lista.
 
-## Logs
-Show snips-skill-server logs with sam:
+En el archivo dispositivos.py hay que indicar también las peticiones http que debe ejecutar Snips cuando se le ordena encender o apagar un dispositivo. Para ello hay que añadir tres líneas de código, siguiendo el modelo siguiente (con los datos del ejemplo):
 
-`sam service log snips-skill-server`
+  dispositivo.append("Lampara")
+  dispositivoOn.append("http://192.168.1.125/lamparaOn.htm")
+  dispositivoOff.append("http://192.168.1.125/lamparaOn.htm")
 
-Or on the device:
+Una vez salvados los cambios en el archivo dispositivos.py, hay que reiniciar el 'snips-skill-server'
 
-`journalctl -f -u snips-skill-server`
+Se puede hacer con el siguiente comando, que reinicia todas las funciones de Snips:
 
-Check general platform logs:
+  $ sudo systemctl restart 'snips-*'
 
-`sam watch`
+## Uso de la aplicación
 
-Or on the device:
+Para pedir a Snips que encienda o apague la lámpara, se puede utilizar cualquiera de las frases añadidas a los intentos "Encender" y "Apagar", utilizando el nombre que hayamos dado al dispositivo de que se trate. Siguiendo con el ejemplo, podría ser:
 
-`snips-watch`
+  "Hey Snips, enciende la lámpara"
+  "Hey Snips, apaga la lámpara"
+  "Hey Snips, conecta la lámpara"
+  "Hey Snips, desconecta la lámpara"
+  
+Se pueden ver todas las frases añadidas a los intentos (y añadir otras frases, si se quiere) editando la aplicación con la consola de Snips.
+
+## Integración con Domoticz
+
+Esta aplicación facilita la el uso de Snips con Domoticz mediante la API JSON de Domoticz.
+
+https://www.domoticz.com/wiki/Domoticz_API/JSON_URL's
+
