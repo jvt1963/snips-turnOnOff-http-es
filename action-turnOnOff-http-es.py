@@ -1,7 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 from hermes_python.hermes import Hermes 
 import requests
-from dispositivos import dispositivo, dispositivoOn, dispositivoOff
+from dispositivos import dispositivo, dispositivoOn, dispositivoOff, respuesta
+import random
 
 MQTT_IP_ADDR = "localhost" 
 MQTT_PORT = 1883 
@@ -16,16 +17,14 @@ def dispositivo_number(current_slot):
 
 
 def intent_received(hermes, intent_message):
-    sentence = 'Me has pedido '
+    sentence = random.choice(respuesta)
     dispositivo_slot = intent_message.slots.dispositivo.first()
     devnum = dispositivo_number(dispositivo_slot.value)
 
     if intent_message.intent.intent_name == 'jaimevegas:Encender':
-        sentence += 'que encienda ' + dispositivo_slot.value
         r = requests.get(dispositivoOn[devnum])
         
     elif intent_message.intent.intent_name == 'jaimevegas:Apagar':
-        sentence += 'que apague ' + dispositivo_slot.value
         r = requests.get(dispositivoOff[devnum])
         
     else:
@@ -36,3 +35,4 @@ def intent_received(hermes, intent_message):
     
 with Hermes(MQTT_ADDR) as h:
     h.subscribe_intents(intent_received).start()
+
