@@ -61,7 +61,7 @@ Al ejecutar una orden, Snips seleccionará aleatoriamente uno de los textos de l
 En el archivo dispositivos.py hay que indicar también las peticiones http que debe ejecutar Snips cuando se le ordena encender o apagar un dispositivo. Para ello hay que añadir tres líneas de código, siguiendo el modelo siguiente (con los datos del ejemplo):
 
   ```
-  dispositivo.append("Lampara")
+  dispositivo.append("Lámpara")
   dispositivoOn.append("http://192.168.1.125/lamparaOn.htm")
   dispositivoOff.append("http://192.168.1.125/lamparaOn.htm")
   ```
@@ -87,7 +87,7 @@ Se pueden ver todas las frases añadidas a los intentos (y añadir otras frases,
 
 ## Integración con Domoticz
 
-Esta aplicación facilita la el uso de Snips con Domoticz mediante la API JSON de Domoticz.
+Esta aplicación facilita el uso de Snips con Domoticz mediante la API JSON de Domoticz.
 
 `https://www.domoticz.com/wiki/Domoticz_API/JSON_URL's`
 
