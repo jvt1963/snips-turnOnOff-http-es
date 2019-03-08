@@ -31,8 +31,10 @@ sudo systemctl start snips-skill-server
 ## Configurar los comandos
 
 Supongamos, por ejemplo, que tenemos una lámpara que se enciende y se apaga con las siguientes peticiones http:
-Encendido: http://192.168.1.125/lamparaOn.htm
-Apagado: http://192.168.1.125/lamparaOff.htm
+
+  Encendido: http://192.168.1.125/lamparaOn.htm
+
+  Apagado: http://192.168.1.125/lamparaOff.htm
 
 Para que Snips encienda y apague la lámpara hay que seguir los siguientes pasos:
 
